@@ -31,7 +31,7 @@ export DOCKER_CLI_EXPERIMENTAL=enabled
 
 # build with buildx
 PLATFORMS?=linux/amd64
-OUTPUT=-output
+OUTPUT=--load
 PROGRESS=plain
 build: ensure-buildx
 	docker buildx build \

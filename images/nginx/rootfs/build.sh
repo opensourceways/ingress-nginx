@@ -41,7 +41,7 @@ export LUA_CJSON_VERSION=2.1.0.8
 export NGINX_INFLUXDB_VERSION=5b09391cb7b9a889687c0aa67964c06a2d933e8b
 export GEOIP2_VERSION=3.3
 export NGINX_AJP_VERSION=bf6cd93f2098b59260de8d494f0f4b1f11a84627
-export CACHE_PURGE_VERSION=2.3
+export CACHE_PURGE_VERSION=2.5.1
 
 export LUAJIT_VERSION=31116c4d25c4283a52b2d87fed50101cf20f5b77
 
@@ -217,8 +217,8 @@ get_src 987d5754a366d3ccbf745d2765f82595dcff5b94ba6c755eeb6d310447996f32 \
         "https://github.com/ledgetech/lua-resty-http/archive/v$LUA_RESTY_HTTP.tar.gz"
 
 # Prepare cache_purge module
-get_src 279e0d8a46d3b1521fd43b3f78bc1c08b263899142a7cc5058c1c0361a92c89c \
-        "http://labs.frickle.com/files/ngx_cache_purge-$CACHE_PURGE_VERSION.tar.gz"
+get_src 9db968170c301168c4a623bce3fefe8bfd93d676c2006d1a8b2d5eec668cc22c \
+        "https://github.com/nginx-modules/ngx_cache_purge/archive/$CACHE_PURGE_VERSION.tar.gz"
 
 
 # improve compilation times
