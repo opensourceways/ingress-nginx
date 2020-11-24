@@ -41,6 +41,7 @@ export LUA_CJSON_VERSION=2.1.0.8
 export NGINX_INFLUXDB_VERSION=5b09391cb7b9a889687c0aa67964c06a2d933e8b
 export GEOIP2_VERSION=3.3
 export NGINX_AJP_VERSION=bf6cd93f2098b59260de8d494f0f4b1f11a84627
+export CACHE_PURGE_VERSION=2.3
 
 export LUAJIT_VERSION=31116c4d25c4283a52b2d87fed50101cf20f5b77
 
@@ -211,6 +212,13 @@ get_src 4aca34f324d543754968359672dcf5f856234574ee4da360ce02c778d244572a \
 
 get_src 987d5754a366d3ccbf745d2765f82595dcff5b94ba6c755eeb6d310447996f32 \
         "https://github.com/ledgetech/lua-resty-http/archive/v$LUA_RESTY_HTTP.tar.gz"
+
+get_src 987d5754a366d3ccbf745d2765f82595dcff5b94ba6c755eeb6d310447996f32 \
+        "https://github.com/ledgetech/lua-resty-http/archive/v$LUA_RESTY_HTTP.tar.gz"
+
+# Prepare cache_purge module
+get_src 279e0d8a46d3b1521fd43b3f78bc1c08b263899142a7cc5058c1c0361a92c89c \
+        "http://labs.frickle.com/files/ngx_cache_purge-$CACHE_PURGE_VERSION.tar.gz"
 
 
 # improve compilation times
@@ -487,7 +495,8 @@ WITH_MODULES="--add-module=$BUILD_PATH/ngx_devel_kit-$NDK_VERSION \
   --add-dynamic-module=$BUILD_PATH/ModSecurity-nginx-$MODSECURITY_VERSION \
   --add-dynamic-module=$BUILD_PATH/ngx_http_geoip2_module-${GEOIP2_VERSION} \
   --add-module=$BUILD_PATH/nginx_ajp_module-${NGINX_AJP_VERSION} \
-  --add-module=$BUILD_PATH/ngx_brotli"
+  --add-module=$BUILD_PATH/ngx_brotli \
+  --add-module=$BUILD_PATH/ngx_cache_purge-${CACHE_PURGE_VERSION}"
 
 ./configure \
   --prefix=/usr/local/nginx \

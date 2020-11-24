@@ -30,8 +30,8 @@ IMAGE = $(REGISTRY)/nginx
 export DOCKER_CLI_EXPERIMENTAL=enabled
 
 # build with buildx
-PLATFORMS?=linux/amd64,linux/arm,linux/arm64,linux/s390x
-OUTPUT=
+PLATFORMS?=linux/amd64
+OUTPUT=-output
 PROGRESS=plain
 build: ensure-buildx
 	docker buildx build \
